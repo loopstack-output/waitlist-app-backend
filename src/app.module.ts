@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import typeormConfig from './typeorm.config';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import AuthModule from './auth/auth.module';
+import UserModule from './user/user.module';
 
 @Module({
   imports: [
@@ -10,7 +12,9 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
           isGlobal: true
       }),
       TypeOrmModule.forRoot(typeormConfig),
-      EventEmitterModule.forRoot()
+      EventEmitterModule.forRoot(),
+      AuthModule,
+      UserModule,
   ],
   controllers: [],
   providers: [],
