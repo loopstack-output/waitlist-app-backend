@@ -4,9 +4,10 @@ import { Repository, Like } from 'typeorm';
 import { WaitlistEntry } from '../entities/waitlist-entry.entity';
 import { User } from '../entities/user.entity';
 import { EmailService } from './email.service';
+import { ConfirmWaitlistEntryServiceInterface } from '../interfaces/confirm-waitlist-entry-service.interface';
 
 @Injectable()
-export class ConfirmWaitlistEntryService {
+export class ConfirmWaitlistEntryService implements ConfirmWaitlistEntryServiceInterface {
   constructor(
     @InjectRepository(WaitlistEntry)
     private readonly waitlistEntryRepository: Repository<WaitlistEntry>,

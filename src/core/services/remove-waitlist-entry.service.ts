@@ -3,9 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { WaitlistEntry } from '../entities/waitlist-entry.entity';
+import { RemoveWaitlistEntryServiceInterface } from '../interfaces/remove-waitlist-entry-service.interface';
 
 @Injectable()
-export class RemoveWaitlistEntryService {
+export class RemoveWaitlistEntryService implements RemoveWaitlistEntryServiceInterface {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,

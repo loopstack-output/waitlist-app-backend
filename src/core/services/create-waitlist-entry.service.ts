@@ -5,9 +5,10 @@ import { User } from '../entities/user.entity';
 import { WaitlistEntry } from '../entities/waitlist-entry.entity';
 import * as bcrypt from 'bcrypt';
 import * as moment from 'moment';
+import { CreateWaitlistEntryServiceInterface } from '../interfaces/create-waitlist-entry-service.interface';
 
 @Injectable()
-export class CreateWaitlistEntryService {
+export class CreateWaitlistEntryService implements CreateWaitlistEntryServiceInterface {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
